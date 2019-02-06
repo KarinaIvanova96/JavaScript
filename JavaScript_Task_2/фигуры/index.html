@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Фигуры</title>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+
+<script>
+    var i, j, line, elementDiv, elementLine;
+
+    document.write("<br/>");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 10; j++) {
+            document.write("&nbsp;*&nbsp;");
+        }
+        document.write("<br/>");
+    }
+    document.write("<br/>");
+
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < i; j++) {
+            document.write("&nbsp;*&nbsp;");
+        }
+        document.write("<br/>");
+    }
+    document.write("<br/>");
+
+    // isosceles triangle
+    elementDiv = document.createElement('div');
+    elementDiv.className = 'isosceles';
+    document.getElementsByTagName('body')[0].appendChild(elementDiv);
+
+    for (i = 0; i < 9; i++) {
+        line = '';
+
+        for (j = 0; j < i; j++) {
+            line += "&nbsp;*&nbsp;";
+        }
+
+        elementLine = document.createElement('span');
+        elementLine.className = 'line';
+        elementLine.innerHTML = line;
+        elementDiv.appendChild(elementLine);
+    }
+    // isosceles triangle END
+
+    // rhombus
+    elementDiv = document.createElement('div');
+    elementDiv.className = 'rhombus';
+    document.getElementsByTagName('body')[0].appendChild(elementDiv);
+
+    var height = 24;
+
+    for (i = 0; i < height / 2; i++) {
+        line = '';
+
+        for (j = 0; j < i; j++) {
+            line += "&nbsp;*&nbsp;";
+        }
+
+        elementLine = document.createElement('span');
+        elementLine.className = 'line';
+        elementLine.innerHTML = line;
+        elementDiv.appendChild(elementLine);
+    }
+
+    for (i = 0; i < height / 2; i++) {
+        line = '';
+
+        for (j = height / 2; j > i; j--) {
+            line += "&nbsp;*&nbsp;";
+        }
+
+        elementLine = document.createElement('span');
+        elementLine.className = 'line';
+        elementLine.innerHTML = line;
+        elementDiv.appendChild(elementLine);
+    }
+    // rhombus END
+</script>
+
+
+</body>
+</html>

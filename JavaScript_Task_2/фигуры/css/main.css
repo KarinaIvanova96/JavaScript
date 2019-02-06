@@ -1,0 +1,17 @@
+.isosceles {
+    float: left;
+    text-align: center;
+    width: 500px;
+}
+
+.rhombus {
+    float: left;
+    text-align: center;
+    width: 500px;
+}
+
+.line {
+    width: 100%;
+    display: inline-block;
+}
+

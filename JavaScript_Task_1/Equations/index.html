@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equations</title>
+</head>
+<body>
+<script>
+    var x = 6, y = 15, z = 4;
+
+    document.write(x += y - x++ * z); //x=-3;
+    document.write("<br/>");
+
+    x = 6;
+
+    document.write(z = --x - y * 5); //z=-70;
+    document.write("<br/>");
+
+    x = 6;
+    z = 4;
+
+    document.write(y /= x + 5 % z); //y=2+1/7;
+    document.write("<br/>");
+
+    y = 15;
+
+    document.write(z = x++ + y * 5); //z=81;
+    document.write("<br/>");
+
+    x = 6;
+    z = 4;
+
+    document.write(x = y - x++ * z); //x=-9;
+
+</script>
+</body>
+</html>
