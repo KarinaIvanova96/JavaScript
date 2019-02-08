@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.2</title>
+</head>
+<body>
+<div>
+    <p>Изначальный масив : 11, 4, 7, -22, -5, 2, 14, -17, -8, 1, 29, 14</p>
+</div>
+<script>
+    var arr = [11, 4, 7, -22, -5, 2, 14, -17, -8, 1, 29, 14],
+        arrOdd, arrEven;
+
+    arrOdd = arr.filter(function (value) {
+        if (value % 2 === 1) return value;
+    }).sort(function (x, y) {
+        return x - y;
+    });
+
+    arrEven = arr.filter(function (value) {
+        if (value % 2 === 0) return value;
+    }).sort(function (x, y) {
+        return y - x;
+    });
+
+    document.write(arrOdd.concat(arrEven).join(', '));
+
+</script>
+</body>
+</html>

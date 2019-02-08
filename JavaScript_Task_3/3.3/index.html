@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.3</title>
+</head>
+<body>
+<div>
+    <p>
+        Изначальный масив : 1, 22, 14, 5, 75, 83, 96, 60, 100, 32;
+    </p>
+</div>
+<script>
+    var allNumbersArr = [1, 22, 14, 5, 75, 83, 96, 60, 100, 32],
+        sum = 0, i, filteredNumbersArr = [];
+
+    for (i = 0; i < allNumbersArr.length; i++) {
+        if (i % 2 !== 0) {
+            filteredNumbersArr.push(allNumbersArr[i]);
+            sum += allNumbersArr[i];
+        }
+    }
+    document.write(filteredNumbersArr.join(' + ') + ' = ' + sum);
+</script>
+</body>
+</html>

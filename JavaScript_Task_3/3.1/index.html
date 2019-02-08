@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1</title>
+</head>
+<body>
+<script>
+    var newArray = [],
+        input = prompt("Введите новый элемент массива:");
+
+    while (input != null) {
+        if (!isNaN(Number(input))) {
+            newArray.push(input);
+        }
+        input = prompt("Введите новый элемент массива:");
+    }
+
+    newArray.sort(function (x, y) {
+        return x - y;
+    });
+    document.write(newArray.join('<br/>'));
+</script>
+</body>
+</html>

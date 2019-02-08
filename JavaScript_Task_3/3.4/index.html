@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.4</title>
+
+</head>
+<body>
+<div>
+    <p>
+        Изначальный массив = [1, 22, 14, 5, 75, 83, 96, 60, 100, 32]
+    </p>
+</div>
+
+</body>
+<script>
+    var arr = [1, 22, 14, 5, 75, 83, 96, 60, 100, 32],
+        elem, startId, endId;
+
+    startId = +prompt("Индекс необходимого элемента в масиве - 1, 22, 14, 5, 75, 83, 96, 60, 100, 32:");
+    endId = +prompt("Вставить по индексу:");
+
+    if (isNaN(startId) || isNaN(endId)) alert('Вы ввели неверные данные');
+
+    elem = arr.splice(startId, 1);
+    arr[endId] = elem;
+
+    document.write(arr.join(', '));
+</script>
+</html>
