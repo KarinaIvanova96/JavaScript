@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.1</title>
+</head>
+<body>
+<script>
+    var numeral1 = prompt("Введите первое число: "),
+        sign = prompt("Введите арифметическую операцию: + - * /"),
+        numeral2 = prompt("Введите второе число: "),
+        result, output, error;
+
+    numeral1 = numeral1.match(/\d+/)[0];
+    numeral2 = numeral2.match(/\d+/)[0];
+
+    function add(a, b) {
+        return Number(a) + Number(b);
+    }
+
+    function sub(a, b) {
+        return a - b;
+    }
+
+    function mul(a, b) {
+        return a * b;
+    }
+
+    function div(a, b) {
+        return a / b;
+    }
+
+    switch (sign) {
+        case "+":
+            result = add(numeral1, numeral2);
+            break;
+
+        case "-":
+            result = sub(numeral1, numeral2);
+            break;
+
+        case "*":
+            result = mul(numeral1, numeral2);
+            break;
+
+        case "/":
+            result = div(numeral1, numeral2);
+            break;
+        default:
+            error = 'Вы ввели неверную арифметическую операцию.';
+            break;
+    }
+
+    if (error) {
+        document.write(error);
+    } else {
+        output = numeral1 + ' ' + sign + ' ' + numeral2 + ' = ' + result;
+        document.write(output);
+    }
+
+</script>
+
+
+</body>
+</html>
