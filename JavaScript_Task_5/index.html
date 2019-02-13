@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.1</title>
+</head>
+<body>
+<script>
+    // 2. Есть массив объектов:
+    // - вывести все машины в тело документа
+    // - вывести только Ford
+    // - вывести только те, у которых стоимость более 4000
+    // - вывести только те, у которых стоимость более 4000 и отсортировать в порядке возрастания цены
+    // - вывести только белые и синие машины
+
+    var i, key, allCarNames1 = [], allCarNames2 = [], allCarNames3, allFord, allFordInfo = [], row = '',
+        allUpper4000, allUpper4000Info = [], blueOrWhite, blueOrWhiteInfo = [],
+        arr = [
+            {name: 'BMW', price: 2300, model: 'X5', color: 'red'},
+            {name: 'Infinity', price: 4500, model: 'FX-35', color: 'white'},
+            {name: 'Honda', price: 3900, model: 'Accord', color: 'blue'},
+            {name: 'Ford', price: 1500, model: 'Focus', color: 'green'},
+            {name: 'BMW', price: 2300, model: 'X5', color: 'orange'},
+            {name: 'Ford', price: 5000, model: 'Fusion', color: 'white'},
+            {name: 'BMW', price: 1900, model: 'X3', color: 'blue'},
+            {name: 'Ford', price: 2300, model: 'Fiesta', color: 'black'},
+            {name: 'Infinity', price: 5300, model: 'FX-45', color: 'black'},
+            {name: 'Honda', price: 2500, model: 'Civic', color: 'red'}];
+
+    // #1 for
+    for (i = 0; i < arr.length; i++) {
+        allCarNames1.push(arr[i].name);
+    }
+    document.write(allCarNames1.join(', ') + '<br/>');
+
+    // #2 forEach
+    arr.forEach(function (value) {
+        allCarNames2.push(value.name);
+    });
+    document.write(allCarNames2.join(', ') + '<br/>');
+
+    // #3 map
+    allCarNames3 = arr.map(function (value) {
+        return value.name;
+    });
+    document.write(allCarNames3.join(', ') + '<br/><hr/>');
+
+    //__________________________________________
+    document.write('<br/><br/>Все Ford:<br/>');
+
+    allFord = arr.filter(function (value) {
+        return value.name === 'Ford';
+    });
+
+    for (i = 0; i < allFord.length; i++) {
+        for (key in allFord[i]) {
+            if (!allFord[i].hasOwnProperty(key)) continue;
+            row += key + ': ' + allFord[i][key] + ' ';
+        }
+
+        allFordInfo.push(row);
+        row = '';
+    }
+
+    document.write(allFordInfo.join('<br/><hr/>') + '<br/><hr/>');
+
+    //__________________________________________
+    document.write('<br/><br/>Все дороже 4000:<br/>');
+
+    allUpper4000 = arr.filter(function (value) {
+        return value.price > 4000;
+    });
+
+    for (i = 0; i < allUpper4000.length; i++) {
+        for (key in allUpper4000[i]) {
+            if (!allUpper4000[i].hasOwnProperty(key)) continue;
+            row += key + ': ' + allUpper4000[i][key] + ' ';
+        }
+
+        allUpper4000Info.push(row);
+        row = '';
+    }
+
+    document.write(allUpper4000Info.join('<br/><hr/>') + '<br/><hr/>');
+
+    //__________________________________________
+    document.write('<br/><br/>Все дороже 4000, отсортированные в порядке возрастания цены:<br/>');
+
+    allUpper4000Info = [];
+
+    allUpper4000.sort(function (a, b){
+        return a.price - b.price;
+    });
+
+    for (i = 0; i < allUpper4000.length; i++) {
+        for (key in allUpper4000[i]) {
+            if (!allUpper4000[i].hasOwnProperty(key)) continue;
+            row += key + ': ' + allUpper4000[i][key] + ' ';
+        }
+
+        allUpper4000Info.push(row);
+        row = '';
+    }
+
+    document.write(allUpper4000Info.join('<br/><hr/>') + '<br/><hr/>');
+
+    //__________________________________________
+    document.write('<br/><br/>Только белые и синие:<br/>');
+
+    blueOrWhite = arr.filter(function (value) {
+        if (value.color === 'blue' || value.color === 'white') {
+            return value;
+        }
+    });
+
+    for (i = 0; i < blueOrWhite.length; i++) {
+        for (key in blueOrWhite[i]) {
+            if (!blueOrWhite[i].hasOwnProperty(key)) continue;
+            row += key + ': ' + blueOrWhite[i][key] + ' ';
+        }
+
+        blueOrWhiteInfo.push(row);
+        row = '';
+    }
+
+    document.write(blueOrWhiteInfo.join('<br/><hr/>') + '<br/><hr/>');
+
+
+</script>
+</body>
+</html>
