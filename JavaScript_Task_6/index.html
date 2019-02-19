@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6.1</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--    /*Написать функцию с 3 аргументами: количество людей в поездке, количество дней (по умолчанию - 7 дней), страна путешествия (Египет, Турция, Болгария);
+    В зависимости от страны - вычисляется за один день сумма.
+        Пользователь при покупке свыше 10 дней - получает скидку в 10%
+    меньше 5 дней -путевку взять нельзя - выдает ошибку. Путевку на 0 человек взять нельзя. Результат должен выводиться в тело документа. Prompt, confirm -использовать нельзя.*/-->
+<div class="number-of-people">
+    <p>Сколько человек едет</p>
+    <label for="numberOfPeople"></label>
+    <input type="number" id="numberOfPeople" onchange="setNumberOfPeople(this)">
+</div>
+<div class="date-picker">
+    <p>
+        Дата поездки
+    </p>
+    <label for="startDate">С </label><input type="date" id="startDate" onchange="setStartDate(this)">&nbsp;
+    <label for="endDate">По </label><input type="date" id="endDate" onchange="setEndDate(this)">
+</div>
+<div class="country">
+    <p>Страна</p>
+    <label for="country"></label>
+    <select class="dropdown-country" id="country" onchange="setCountry(this)">
+        <option disabled selected>Выберите страну из списка</option>
+        <option>Египет</option>
+        <option>Турция</option>
+        <option>Болгария</option>
+    </select>
+</div>
+
+<span id="result"></span>
+<script src="js/main.js"></script>
+</body>
+</html>

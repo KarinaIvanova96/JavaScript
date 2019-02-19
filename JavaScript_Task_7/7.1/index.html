@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.1</title>
+</head>
+<body>
+
+<p>Выберите арифметическую операцию</p>
+
+<input type="button" value="+" onclick="add()">
+<input type="button" value="-" onclick="sub()">
+<input type="button" value="/" onclick="mul()">
+<input type="button" value="*" onclick="div()">
+
+<script>
+    var numeral1 = +prompt("Введите первое число: "),
+        numeral2 = +prompt("Введите второе число: ");
+
+    function add() {
+        document.write(numeral1 + numeral2);
+    }
+
+    function sub() {
+        document.write(numeral1 - numeral2);
+    }
+
+    function mul() {
+        document.write(numeral1 / numeral2);
+    }
+
+    function div() {
+        document.write(numeral1 * numeral2);
+    }
+</script>
+
+</body>
+</html>
