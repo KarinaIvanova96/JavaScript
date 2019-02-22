@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8.1</title>
+</head>
+<body>
+<script>
+
+    /*ДЗ: создать родительский конструктор, У родительского
+    конструктора нужно создать поля(статические - те что
+    будут для всех - одинаковые). От родителя должно быть
+    наследование 2 функция конструкторов.У каждого дочернего
+    конструктора - по 3 экземпляра.Реализуйте свойства и
+    методы отображения свойств для каждого наследника.
+    рестораны, кафе*/
+
+    function Eatery() {
+        this.name = 'Eatery';
+        this.description = 'Place where you can eat for money. :D';
+        this.welcomeMessage = 'Welcome to our Eatery!';
+    }
+
+    Eatery.prototype.showInfo = function () {
+        console.log('EATERY -> ', this.welcomeMessage);
+        console.log('EATERY -> Name: ', this.name);
+        console.log('EATERY -> Description: ', this.description);
+    };
+
+    function Restaurants(title, menu, staff) {
+        this.title = title;
+        this.menu = menu;
+        this.staff = staff;
+        this.displayStaff = function () {
+            for (var i = 0; i < this.staff.length; i++) {
+                console.log('STAFF -> name: ', this.staff[i].name, 'role: ', this.staff[i].role, 'salary: ', this.staff[i].salary);
+            }
+        };
+        this.displayMenu = function () {
+            for (var i = 0; i < this.menu.length; i++) {
+                console.log('MENU -> title: ', this.menu[i].title, 'price: ', this.menu[i].price, 'in stock: ', this.menu[i].inStock);
+            }
+        };
+        this.displayAllInfo = function () {
+            this.showInfo();
+            this.displayStaff();
+            this.displayMenu();
+        }
+    }
+
+    function Cafe(title, menu, staff) {
+        this.title = title;
+        this.menu = menu;
+        this.staff = staff;
+    }
+
+    Restaurants.prototype = new Eatery();
+    Cafe.prototype = new Restaurants();
+
+
+    var restaurants1 = new Restaurants("Restaurants 1", [{title: 'Суши', price: '100', inStock: true}, {
+            title: 'Хлеб',
+            price: '1',
+            inStock: false
+        }],
+        [{role: 'administrator', name: 'Валентин Валентинович', salary: '9000000$'}, {
+            role: 'chef',
+            name: 'Вася Пупкин',
+            salary: '10$'
+        }]);
+    var restaurants2 = new Restaurants("Restaurants 2", [{title: 'Рыба', price: '50', inStock: false}, {
+            title: 'Салат',
+            price: '25',
+            inStock: true
+        }],
+        []);
+    var restaurants3 = new Restaurants("Restaurants 3", [{
+        title: 'Шашлык',
+        price: '75',
+        inStock: true
+    }, {title: 'Картошка', price: '20', inStock: false}], []);
+
+    var cafe1 = new Cafe("Cafe 1", [{title: 'Суши', price: '100', inStock: true}, {
+            title: 'Хлеб',
+            price: '1',
+            inStock: false
+        }],
+        [{role: 'administrator', name: 'Валентин Валентинович', salary: '9000000$'}, {
+            role: 'chef',
+            name: 'Вася Пупкин',
+            salary: '10$'
+        }]);
+    var cafe2 = new Cafe("Cafe 2", [{title: 'Рыба', price: '50', inStock: false}, {
+        title: 'Салат',
+        price: '25',
+        inStock: true
+    }], []);
+    var cafe3 = new Cafe("Cafe 3", [{title: 'Шашлык', price: '75', inStock: true}, {
+        title: 'Картошка',
+        price: '20',
+        inStock: false
+    }], []);
+
+    restaurants1.displayAllInfo();
+    restaurants2.displayAllInfo();
+    restaurants3.displayAllInfo();
+
+    cafe1.displayAllInfo();
+    cafe2.displayAllInfo();
+    cafe3.displayAllInfo();
+
+</script>
+</body>
+</html>

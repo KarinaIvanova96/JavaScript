@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.2</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div id="cube1"></div>
+<div id="cube2"></div>
+<div id="cube3"></div>
+<div id="cube4"></div>
+<div id="cube5"></div>
+<button onclick='changeColor()'>Сменить цвет</button>
+
+<script>
+    var currentCube = 1,
+        previousCube;
+
+   function changeColor() {
+       document.getElementById('cube' + currentCube).style.background = "#1e7e34";
+       previousCube = currentCube === 1 ? 5 : currentCube - 1;
+
+       ++currentCube > 5 ? currentCube = 1 : 'this string will not make any affect';
+
+       document.getElementById('cube' + previousCube).style.background = "#AA0000";
+   }
+</script>
+</body>
+</html>

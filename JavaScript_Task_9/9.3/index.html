@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.3</title>
+</head>
+<body>
+
+
+<script>
+    var arr = [], idx, removedValue, i;
+
+    for (i = 0; i < 100; i++) {
+        arr[i] = i + 1;
+    }
+
+    arr.sort(function () {
+        return Math.random() - 0.5;
+    });
+
+    idx = Math.round(-0.5 + Math.random() * arr.length);
+
+    removedValue = arr[idx]; // Here it is
+    arr[idx] = 0;
+
+    console.log('removedValue: ', removedValue, 'modified arr: ', arr);
+
+    document.write(removedValue);
+</script>
+</body>
+</html>

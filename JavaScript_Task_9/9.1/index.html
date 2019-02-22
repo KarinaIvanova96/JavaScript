@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.1</title>
+</head>
+<body>
+<input type="text" id="textForParagrapf">
+<button onclick='createNewParagrapf()'>New paragrapf</button>
+<div id="content"></div>
+<script>
+    var count = 0,
+        content = document.getElementById('content'),
+        textForParagrapf = document.getElementById('textForParagrapf');
+
+    function createNewParagrapf() {
+        var newP = document.createElement('p');
+        newP.innerText = textForParagrapf.value;
+        content.appendChild(newP);
+        count++;
+        textForParagrapf.value = null;
+        if (count === 10) {
+            content.innerHTML = '';
+            count = 0;
+        }
+    }
+</script>
+</body>
+</html>
