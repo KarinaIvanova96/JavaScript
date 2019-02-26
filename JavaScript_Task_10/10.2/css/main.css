@@ -1,0 +1,11 @@
+div {
+    width: 200px;
+    height: 200px;
+    float: left;
+    background-color: #AA0000;
+    margin: 30px;
+}
+
+input {
+    width: 75px;
+}

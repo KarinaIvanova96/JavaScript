@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10.1</title>
+</head>
+<body>
+<!-- hyperText markup language
+    1. Аббревиатура
+    2. Каждое слово с заглавной буквы-->
+
+<p id="p">hyper text markup language</p>
+
+<button onclick="abbr()">Абривиатура</button>
+<button onclick="bfw()">С большой буквы</button>
+
+<script>
+    var str = document.getElementById("p").innerHTML;
+    function abbr(){
+        var wordsArr = str.split(" ");
+        var newAbbr="";
+        for(var i =0;i<wordsArr.length;i++){
+            newAbbr+=(wordsArr[i].charAt(0).toUpperCase());
+        }
+        document.write(newAbbr);
+    }
+    function bfw(){
+        var wordsArr = str.split(" ");
+        var newStr ="";
+        for(var i =0;i<wordsArr.length;i++){
+            newStr+=(wordsArr[i].charAt(0).toUpperCase())+wordsArr[i].substr(1)+" ";
+        }
+        document.write(newStr);
+    }
+</script>
+</body>
+</html>

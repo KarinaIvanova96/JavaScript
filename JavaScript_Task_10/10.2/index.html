@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10.2</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div id="cube1"></div>
+<div id="cube2"></div>
+<div id="cube3"></div>
+<div id="cube4"></div>
+<div id="cube5"></div>
+<button onclick='forwardMovement()' id="forwardBtn">Движение вперед</button>
+<button onclick='backwardMovement()' id="backwardBtn">Движение назад</button>
+<label>Speed:</label>
+<input type="number" id="speed" onchange="setSpeed()"/> мс (on blur)
+
+<script>
+    var currentCube = 1, previousCube,
+        forwardInterval, backwardInterval, speed;
+
+    speed = document.getElementById('speed').value = 1000;
+
+    function forwardMovement() {
+        if (backwardInterval) {
+            clearInterval(backwardInterval);
+            document.getElementById('backwardBtn').disabled = false;
+            document.getElementById('backwardBtn').innerHTML = 'Движение назад';
+            currentCube === 5 ? currentCube = 1 : currentCube++;
+        }
+
+        document.getElementById('forwardBtn').disabled = true;
+        document.getElementById('forwardBtn').innerHTML = 'Processing';
+
+        forwardInterval = setInterval(function () {
+            document.getElementById('cube' + currentCube).style.background = "#1e7e34";
+            previousCube = currentCube === 1 ? 5 : currentCube - 1;
+
+            ++currentCube > 5 ? currentCube = 1 : '';
+
+            document.getElementById('cube' + previousCube).style.background = "#AA0000";
+        }, speed);
+    }
+
+    function backwardMovement() {
+        if (forwardInterval) {
+            clearInterval(forwardInterval);
+            document.getElementById('forwardBtn').disabled = false;
+            document.getElementById('forwardBtn').innerHTML = 'Движение вперед';
+            currentCube === 1 ? currentCube = 5 : currentCube--;
+        }
+
+        document.getElementById('backwardBtn').disabled = true;
+        document.getElementById('backwardBtn').innerHTML = 'Processing';
+
+        backwardInterval = setInterval(function () {
+            document.getElementById('cube' + currentCube).style.background = "#1e7e34";
+            previousCube = currentCube === 5 ? 1 : currentCube + 1;
+
+            --currentCube < 1 ? currentCube = 5 : '';
+
+            document.getElementById('cube' + previousCube).style.background = "#AA0000";
+        }, speed);
+    }
+
+    function setSpeed() {
+        speed = document.getElementById('speed').value;
+
+        if (forwardInterval) {
+            clearInterval(forwardInterval);
+            forwardMovement();
+        }
+
+        if (backwardInterval) {
+            clearInterval(backwardInterval);
+            backwardMovement();
+        }
+    }
+
+</script>
+</body>
+</html>
