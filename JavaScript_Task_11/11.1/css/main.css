@@ -1,0 +1,11 @@
+#box{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    background: #9fcdff;
+}
+
+button{
+    width: 60px;
+    height: 60px;
+}
